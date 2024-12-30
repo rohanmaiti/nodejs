@@ -1,0 +1,80 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text" name="name" id="name" placeholder="Enter name">
+        <input type="number" name="age" id="age" placeholder="Enter age">
+        <button type="submit">submit</button>
+    </div>
+
+    <script>
+       
+        document.querySelector("button").addEventListener("click",()=>{
+            let name = document.querySelector("#name").value;
+            let age = document.querySelector("#age").value;
+            let obj = {
+                name : name,
+                age:age
+            }
+            fetch("http://localhost:3000/formdata",{
+                method:"POST",
+                headers:{
+                    'Content-Type': 'application/json'
+                },
+                body:JSON.stringify(obj)
+            }).then((res)=>{
+                console.log(res);
+            })
+        })
+
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Form</title>
+</head>
+<body>
+    <div>
+        <input type="text" name="name" id="name" placeholder="Enter name">
+        <input type="number" name="age" id="age" placeholder="Enter age">
+        <button type="submit">Submit</button>
+    </div>
+
+    <script>
+        document.querySelector("button").addEventListener("click", () => {
+            let name = document.querySelector("#name").value;
+            let age = document.querySelector("#age").value;
+            let obj = {
+                name: name,
+                age: age
+            };
+
+            // Send a POST request using fetch
+            fetch("http://localhost:3000/formdata", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(obj)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Response from server:", data);
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+        });
+    </script>
+</body>
+</html>
