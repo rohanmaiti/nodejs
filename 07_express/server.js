@@ -1,39 +1,23 @@
 const express = require("express");
-const bodyparser = require("body-parser");
-const fs = require("fs");
 const app = express();
-app.use(express.static("*"));
-// app.use(express.json());
-app.use(bodyparser.urlencoded({extended:true}))
-app.listen(4000,(err)=>{
-    if(err)
-        console.log(err)
-    console.log("server started at 4000")
-});
-
-app.get("/",(req,res)=>{
-res.send("hii there")
-res.sendFile("./index.html",{root:__dirname});
+app.listen(3000,(err)=>{
+    if(err) throw err;
+    else console.log("server started at 3000");
 })
 
-app.post("/formdata",(req,res)=>{
-    console.log("post")
-    console.log(req.body);
-    let data = JSON.parse(fs.readFileSync("./data.json","utf-8"));
-    // data.forEach(obj=>{
-    //     if(obj.name == req.query.name && obj.password == req.query.password)
-    //     {
-    //         res.status(200).json({message:"true"});
-    //     }
-    // })
-    let x = data.filter((obj)=> obj.name == req.body.name && obj.password == req.body.password)
-    if(x)
-    {
-         res.status(200).json({message:"true"});
-    }
-    res.end();
+// *HANDLING GET REQUEST
+// app.get("/home",(req,res)=>{
+// res.send("<h1>Welcome to Home page</h1>")
+// })
+
+// *SENDING FILES IN RESPONSE
+app.get("/home",(req,res)=>{
+res.sendFile("home.html",{root:__dirname});
 })
 
-app.all("*",(req,res)=>{
-    res.send("Hii");
-})
+// *HANDLING STATIC FILES
+app.use(express.static(__dirname)); // name the directory which files should be static
+
+// *HANDLING STATIC FILES- 02
+app.use(express.static(__dirname+"images"));
+// this directory is now static so go to the browser and type: ** http:localhost:3000/images/img1.jpg | http:localhost:3000/images/img2.jpg
