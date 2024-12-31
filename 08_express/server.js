@@ -55,5 +55,5 @@ app.use(express.json());
 app.use(express.urlencoded()); // if sending through fetch no need of express.urlencoded()
 app.post("/login",(req,res)=>{
     console.log(req.body);
-    res.json({msg:"Get request accepted"});
+    res.json({msg:"Post request accepted"});
 })
