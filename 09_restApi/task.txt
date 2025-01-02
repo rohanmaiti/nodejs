@@ -1,4 +1,19 @@
 REST API -JSON
+What is rest APi ? 
+A REST API (Representational State Transfer Application Programming Interface) is a set of rules and conventions for building and interacting with web services. It allows different systems to communicate over HTTP, enabling the exchange of data in a standardized format, typically JSON or XML.
+
+Key principles of REST APIs:
+
+Stateless: Each request from a client to the server must contain all the necessary information; the server does not retain client state between requests.
+Resource-based: Data and functionalities are accessed using unique URIs representing resources (e.g., /users, /products).
+#HTTP Methods:
+GET: Retrieve data.
+POST: Create new data.
+PUT: Update existing data.
+DELETE: Remove data.
+>> 
+
+
 
 GET  /users - list all users
 
@@ -7,3 +22,4 @@ GET  /users/2 - get the user with ID 2
 
 POST /users/1 - Edit the user with id 1
 DELETE /users/1  - Delete the user with id 1
+
