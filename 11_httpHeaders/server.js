@@ -14,7 +14,7 @@ app.get('/customHeader', (req, res) => {
 
     // header in response
     res.setHeader('X-myName', 'Rohan Maiti'); // when ever write custome header name should start with 'X-' || good practice
-    res.send('Hello World!');
+    res.status(200).send('Hello World!');
   })
 
   app.post('/customHeader', (req, res) => {
