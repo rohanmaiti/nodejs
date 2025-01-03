@@ -15,5 +15,6 @@
  *    * cookies are small pieces of data that are stored on the client's computer.
  *    * cookies are used to store information about the client.
  *    * cookies are sent to the server with every request.
+
  *    
  */
