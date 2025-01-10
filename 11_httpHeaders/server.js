@@ -1,14 +1,14 @@
 const express = require('express');
 const app = express();
-app.listen(3000, () => {
+  app.listen(3000, () => {
   console.log('Server is listening on port 3000');
-});
+  });
 
-app.get('/', (req, res) => {
+  app.get('/', (req, res) => {
   res.setHeader('Content-Type', 'text/plain');
   res.send('Hello World!');
-})
-app.get('/customHeader', (req, res) => {
+  })
+  app.get('/customHeader', (req, res) => {
     // header in request
     console.log(req.headers);
 
