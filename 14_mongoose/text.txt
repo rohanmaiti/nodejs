@@ -1,0 +1,3 @@
+SCHEMA --> MODEL --> CRUD OPERATION
+
+To create SCHEMA
