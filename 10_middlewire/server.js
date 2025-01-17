@@ -35,6 +35,14 @@ app.get("/about", (req, res ) => {
 
 });
 
+app.route("/user")
+.get((req,res)=>{
+    res.json({msg:"/get request"});
+})
+.post((req,res)=>{
+    res.json({msg:"/post request"});
+})
+
 app.all("*", (req, res) => {
     res.send("404 page not found");
 });
