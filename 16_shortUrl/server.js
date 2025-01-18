@@ -1,9 +1,12 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const urlRouter = require("./router/url.router");
 const reDirectedUrl = require("./router/redirect.route");
-const connectToMongoDB = require("./connection/connection")
+const connectToMongoDB = require("./connection/connection");
+const Url = require("./model/url.model");
 
+app.use(cors());
 app.use(express.json());
 app.listen(3000,(err)=>{
     err ? console.log(err.message) : console.log("server started at 3000");
@@ -15,5 +18,6 @@ connectToMongoDB("mongodb://127.0.0.1:27017/shortUrl")
 
 app.use("/url",urlRouter);
 app.use("/url",reDirectedUrl)
+
 
 
