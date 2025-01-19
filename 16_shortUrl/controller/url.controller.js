@@ -5,9 +5,6 @@ module.exports = async function generateNewUrl(req,res){
 const body = req.body;
 console.log("hii");
 if(!body.url) res.status(401).json({msg:"url is required"});    
-// if(!body.url.contains("https://www")){
-// body.url = "https://www" + body.url;
-// }
 const shortId = shortid();
 const result = await Url.create({
     shortId:shortId,
