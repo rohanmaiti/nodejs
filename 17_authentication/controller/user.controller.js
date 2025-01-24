@@ -1,3 +1,4 @@
+const User = require("../models/user.model")
 function handleLoginGet(req,res){
     res.sendFile("login.html",{root:"./html"});
 }
@@ -12,12 +13,13 @@ function handleDashboardGet(req,res){
 }
 
 async function  handleLoginPost(req,res){
-    let user = User.find({email:req.body.email, password:req.body.password});
+    let user = await User.findOne({email:req.body.email, password:req.body.password});
+    console.log("userr = ",user);
     if(!user){
-        res.json({msg:"User not exists"});
+        res.json({msg:"bad request"});
     }
     else{
-        // authentication starts here 
+        //JWT authentication code here starts here 
         res.redirect("/home");
     }
 }
