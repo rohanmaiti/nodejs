@@ -4,8 +4,8 @@
 // module.exports = add;
 
 
-
-
+// ** Multople exports , can we write like this ?
+// Can we export
 // function add(a,b){
 //     return a+b;
 // }
