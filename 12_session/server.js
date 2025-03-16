@@ -25,6 +25,7 @@ const userSchema = new mongoose.Schema({
     },
     password:String
 })
+
 const User = mongoose.model("user",userSchema);
 mongoose.connect(uri).then(()=>{
     console.log("mongoose connected");
@@ -38,7 +39,7 @@ if(req.session.user){
 next();    
 }
 else{
-    res.redirect("/");
+    res.redirect("/login");
 }
 }
 
@@ -53,7 +54,7 @@ function checkLogin(req,res,next){
 }
 
 
-app.get("/",checkLogin,(req,res)=>{
+app.get("/login",checkLogin,(req,res)=>{
     res.sendFile("login.html",{root: "./html"})
 })
 
@@ -75,7 +76,7 @@ app.post("/login",async (req,res)=>{
 app.get("/dashboard",authUser,(req,res)=>{
     res.sendFile("dashboard.html",{root:"./html"});
 })
-app.get("/home",authUser,(req,res)=>{
+app.get("/",authUser,(req,res)=>{
     res.sendFile("home.html",{root:"./html"});
 })
 app.get("/about",authUser, (req,res)=>{
@@ -89,4 +90,8 @@ app.post("/logout",(req,res)=>{
     req.session.destroy();
     console.log(req.session);
     res.redirect("/");
+})
+
+app.all("*",(req,res)=>{
+    res.send("404 not found");
 })
