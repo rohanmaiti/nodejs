@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 const app = express();
 app.listen(5000,(err)=>{
     err?console.log(err.message) : console.log("server started at 5000");
@@ -17,6 +18,7 @@ connectToMongoDb(uri).then(()=>{
     console.log("error connecting to bd",err.message);
 })
 
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(cors());

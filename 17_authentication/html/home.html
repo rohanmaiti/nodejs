@@ -7,5 +7,19 @@
 </head>
 <body>
     <h1>Home page</h1>
+    <button>logout</button>
+    <script>
+        document.querySelector("button").addEventListener('click',()=>{
+            console.log("button clicked");
+            fetch("/logout",{
+                method:"POST",
+            })
+            .then(res=>{
+                if(res.redirected){
+                    window.location.href = "/login";
+                }
+            })
+        })
+    </script>
 </body>
 </html>

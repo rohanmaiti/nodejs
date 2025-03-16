@@ -1,19 +1,21 @@
 const express = require("express");
 const router = express.Router();
+const {isNotLogin} = require("../middlewire/auth.middlewire");
 const {
     handleLoginGet,
     handleSigninGet, 
     handleAboutGet, 
     handleDashboardGet, 
     handleLoginPost,
-    handleSigninPost
+    handleSigninPost,
+    handleLogoutPost
     } = require("../controller/user.controller");
 
-router.get("/login",handleLoginGet);
+router.get("/login",isNotLogin,handleLoginGet);
+router.get("/",handleLoginGet);
 router.post("/login",handleLoginPost);
-router.get("/signin",handleSigninGet);
+router.get("/signin",isNotLogin,handleSigninGet);
 router.post("/signin",handleSigninPost);
-router.get("/about",handleAboutGet);
-router.get("/dashboard",handleDashboardGet);
+router.post("/logout",handleLogoutPost);
 
 module.exports = router;

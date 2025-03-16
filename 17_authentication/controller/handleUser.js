@@ -9,6 +9,6 @@ function handleAboutPage(req,res,fileName){
 function handleDashboardPage(req,res,fileName){
     res.sendFile("dashboard.html",{root:"./html"})
 }
-handleDashboardPage
-handleAboutPage
+// handleDashboardPage
+// handleAboutPage
 module.exports = {handleHomePage, handleAboutPage, handleDashboardPage};
