@@ -3,6 +3,7 @@
  *   ^         request             process of request       <-----------------
  *   |                                                             response
  *   <-------------------request can revert back from here 
+ *                                 ie(middlewire)
  * 
  *   0. middlewire is funciton that runs on every request and response
  *   1. middlewire is a function that takes request and response object and next function as argument
