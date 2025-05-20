@@ -37,19 +37,18 @@ mongoose.connect("mongodb+srv://rohan:rohan123@cluster0.qzw60o2.mongodb.net/mong
 
 
 // CRUD operations
-// ** Create
-app.post("/signup",async (req,res)=>{
-    
-    const {name , age, address, email} = req.body;
-    console.log(req.body);
-    try {
-        // type-01
-        const user =await new User({name:name, age:age, address:address, email:email});
-        await user.save();
-        console.log(user);
-    } catch (error) {
-        
-    }
+// ** CREATE
 
-    res.send("ok");
-})
+function createUser(){
+    const user = new User({
+        name:"Rahul Maiti",
+        age:21,
+        email:"rahul@gmail.com",
+        address: "rakhilya"
+    })
+    
+    console.log(user);
+    user.save();
+}
+// createUser();
+
