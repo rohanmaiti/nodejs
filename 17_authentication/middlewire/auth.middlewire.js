@@ -24,7 +24,6 @@ try {
         res.redirect("/home");
 } catch (error) {
     next();
-    
 }
 }
 

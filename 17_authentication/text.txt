@@ -1,0 +1,16 @@
+what is hashing ?
+>> while singup (your password)----> [Node js server]-->(hased the password)--> store in DB
+>> while login (your credentioan)--> [Node js server]--> (again hased your given password)
+                                                         (fetched old hased password from DB) <----[DB]
+                                                         (compare the password and let go things )
+# it is oneway
+>> nobody ever can convert the hashed password to original password
+
+
+what is encription and decription ?         
+>> someone give you string -----your sceret key ----------> encriptted string
+>> encripted string --------your secret kye-------------> decript string( original )
+# it is two way 
+
+what is jwt ?
+>> takes a json ---> gives  you a token

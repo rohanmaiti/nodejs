@@ -2,8 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const app = express();
-app.listen(5000,(err)=>{
-    err?console.log(err.message) : console.log("server started at 5000");
+app.listen(3000,(err)=>{
+    err?console.log(err.message) : console.log("server started at 3000");
 })
 const uri = "mongodb+srv://rohan:rohan123@cluster0.qzw60o2.mongodb.net/jwtAuthenticate"
 const connectToMongoDb = require("./db/db.js");
