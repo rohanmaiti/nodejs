@@ -35,6 +35,7 @@ mongoose.connect(uri).then(()=>{
 
 // creating middlewire for authentication
 function authUser(req,res,next){
+    // login for authenticate
 if(req.session.user){
 next();    
 }
