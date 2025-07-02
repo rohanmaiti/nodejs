@@ -8,7 +8,7 @@ app.use(express.urlencoded());
 app.use(express.json());
 
 // creating schema and model
-const userShcema = new mongoose.Schema({
+const UserShcema = new mongoose.Schema({
     name:String,
     age:{
         type:Number,
@@ -24,7 +24,7 @@ const userShcema = new mongoose.Schema({
     }
 
 })
-const User = mongoose.model("user", userShcema);
+const User = mongoose.model("User", UserShcema);
 
 // connection 
 mongoose.connect("mongodb+srv://rohan:rohan123@cluster0.qzw60o2.mongodb.net/mongooseDataBase")
@@ -36,9 +36,8 @@ mongoose.connect("mongodb+srv://rohan:rohan123@cluster0.qzw60o2.mongodb.net/mong
 })
 
 
-// CRUD operations
-// ** CREATE
-
+//** CRUD operations
+//** CREATE
 function createUser(){
     const user = new User({
         name:"Rahul Maiti",
