@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const { string } = require("zod/v4");
 const app = express();
 app.listen(4000,(req,res)=>{
     console.log("server started at 4000");
@@ -21,6 +22,18 @@ const UserShcema = new mongoose.Schema({
     email:{
         type:String,
         unique: true
+    }
+
+})
+
+const CourseSchema = new Mongoose.Schema({
+    course_id: {
+        type:string
+    },
+    title : string,
+    price: string,
+    owner_id: {
+        type: Mongoose.Types.ObjectType 
     }
 
 })
