@@ -36,3 +36,7 @@ async function insertData({ username, email, password }) {
   const res = await client.query(insertQuery, [username, email, password]);
   console.log("Insertion success:", res);
 }
+
+# Relationship and Transactions
+- * Foreign Key
+- * Joining two table is hard 

@@ -28,3 +28,15 @@ async function insertData({ username, email, password }) {
   console.log("Insertion success:", res);
 }
 // insertData({ username: "rohanmaiti", email: "rohanmaiti69@gmail.com", password: "123456" });
+
+
+async function getUser(email){
+    await client.connect();
+    const getUserQuery = `
+    SELECT * FROM users WHERE email = $1
+    `
+    const res = await client.query(getUserQuery, [email]); 
+    console.log('user details', res);
+}
+
+getUser('rohanmaiti69@gmail.com')
