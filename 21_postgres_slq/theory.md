@@ -13,3 +13,26 @@
 - 3. creating a table and defining it's schema
 - 4. Run quires on the database to interact with the data (insert update  and delete)
 
+
+# what is sql injection ?
+>>  login data ------>   BE server ---- storing the data directly to DB -----> DB
+    so user can update your SQL data base
+# below is the wrong way of inserting data into database
+async function insertData({ username, email, password }) {
+  await client.connect();
+  const insertQuery = `
+  INSERT INTO users (username, email, password) VALUES (`${username}`, `${email}`, `${password}`)
+  `;
+  const res = await client.query(insertQuery);
+  console.log("Insertion success:", res);
+}
+
+# below is the right way of inserting data into database
+async function insertData({ username, email, password }) {
+  await client.connect();
+  const insertQuery = `
+  INSERT INTO users (username, email, password) VALUES ($1, $2, $3)
+  `;
+  const res = await client.query(insertQuery, [username, email, password]);
+  console.log("Insertion success:", res);
+}
